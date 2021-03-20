@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, parser_classes
-from .serializers import RegisterSerializer, LoginSerializer, AccountPropertySerializer, ChangePasswordSerializer, ResetPasswordSerializer, MobileSerializer, OtpSerializer, SetNewPasswordSerializer
+from .serializers import RegisterSerializer, LoginSerializer, AccountPropertySerializer, ChangePasswordSerializer, ResetPasswordSerializer, MobileSerializer, OtpSerializer, SetNewPasswordSerializer, AccountUpdateSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework import permissions, status, generics
@@ -134,7 +134,7 @@ def account_property_update(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == "PUT":
-        serializer = AccountPropertySerializer(user, data=request.data)
+        serializer = AccountUpdateSerializer(user, data=request.data)
         data = {}
         if serializer.is_valid():
             serializer.save()
