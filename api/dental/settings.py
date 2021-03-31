@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'm69l$tg)5@vtv2q!34sz)(*4qvsn#5#@g=os*&khg8#vyoc+7h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False # For running in surver
 
 ALLOWED_HOSTS = [
+    'dental-home-nepal.herokuapp.com',
     '10.0.2.2',  # for android emulator to run this
     '127.0.0.1',
     'localhost',

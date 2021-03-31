@@ -15,7 +15,7 @@ class AppointmentSerializer(serializers.ModelSerializer):
         model = AppointmentTable
         depth = 1
         fields = [
-            'id', 'appointmentBy', 'appointmentTime', 'username', 'doctor'
+            'id', 'appointmentTime', 'username', 'doctor', 'created_at'
         ]
         # fields = ('__all__')
 
@@ -23,8 +23,8 @@ class AppointmentSerializer(serializers.ModelSerializer):
         username = appointment.author.username
         return username
 
-    def get_author_doctorname(self, doctor):
-        doc_name = doctor.appointmentBy.full_name
+    def get_author_doctorname(self, appointment):
+        doc_name = appointment.appointmentBy.full_name
         return doc_name
 
 

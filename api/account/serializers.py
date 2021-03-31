@@ -82,14 +82,15 @@ class AccountPropertySerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 # Account Property Serializer
+
+
 class AccountUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NewUser
-        fields = ['pk', 'username',
-                  'first_name', 'last_name', 'mobile', 'address', 'profile_image']
+        fields = [
+            'first_name', 'last_name', 'mobile', 'address']
         # fields = ('__all__')
-
 
 
 # Password change serializer

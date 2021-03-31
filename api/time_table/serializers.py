@@ -15,21 +15,18 @@ class TimeTableSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TimeTable
-        # depth = 1
+        depth = 1
         fields = [
-            'id', 'time_space', 'doctor_name'
+            'id', 'time_space', 'doctor_name', 'doctor'
         ]
         # fields = ('__all__')
 
     def get_author_username(self, doctor):
-        username = doctor.doctor.full_name
-        return username
+        doc_name = doctor.doctor.full_name
+        return doc_name
 
 
-# class DoctorSerializer(serializers.ModelSerializer):
-#     doctor = serializers.PrimaryKeyRelatedField(
-#         many=True, queryset=TimeTable.objects.all())
-
-#     class Meta:
-#         model = Doctor
-#         fields = ['id', 'username', 'appointment']
+class TimeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeTable
+        fields = ['id', 'time_space', 'doctor']

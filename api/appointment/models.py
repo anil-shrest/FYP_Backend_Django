@@ -21,7 +21,7 @@ class AppointmentTable(models.Model):
     # slug = models.SlugField(blank=True, unique=True)
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.appointmentTime
