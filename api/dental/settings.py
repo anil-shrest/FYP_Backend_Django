@@ -173,7 +173,7 @@ MEDIA_URL = '/images/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'static/profile_images')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'static/service_image')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # SMTP Configurations
