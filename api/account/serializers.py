@@ -89,7 +89,7 @@ class AccountUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewUser
         fields = [
-            'first_name', 'last_name', 'mobile', 'address']
+            'first_name', 'last_name', 'email', 'address']
         # fields = ('__all__')
 
 

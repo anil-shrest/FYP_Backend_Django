@@ -75,6 +75,7 @@ def register_view(request):
             data['email'] = user.email
             data['username'] = user.username
             data['address'] = user.address
+            # data['password'] = user.password
             # data['profile_image'] = user.profile_image
             token = Token.objects.get(user=user).key
             data['token'] = token

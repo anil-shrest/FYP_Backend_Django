@@ -14,7 +14,7 @@ class TimeTable(models.Model):
                                   on_delete=models.CASCADE, null=True)
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['doctor']
 
     def __str__(self):
         return self.time_space
