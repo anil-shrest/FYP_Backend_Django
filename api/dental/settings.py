@@ -162,6 +162,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_URL = '/media/'
 
@@ -169,5 +173,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'profile_images')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'service_image')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'doctors_image')
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # SMTP Configurations
