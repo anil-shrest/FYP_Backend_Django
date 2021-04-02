@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'm69l$tg)5@vtv2q!34sz)(*4qvsn#5#@g=os*&khg8#vyoc+7h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False  # For running in surver
+# DEBUG = True
+DEBUG = False  # For running in surver
 
 ALLOWED_HOSTS = [
     'dental-home-nepal.herokuapp.com',
@@ -171,10 +171,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'doctors_image')
 
 
 # SMTP Configurations
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'nil.shrestha1234@gmail.com'
-EMAIL_HOST_PASSWORD = 'Shadowscry2000'
