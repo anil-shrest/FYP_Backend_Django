@@ -8,7 +8,7 @@ class Doctor(models.Model):
     nmc_number = models.CharField(max_length=8, blank=False)
     doc_type = models.CharField(max_length=50, blank=False)
     speciality = models.CharField(max_length=200, blank=False)
-    photo = models.ImageField('doctors_image', blank=True)
+    photo = models.ImageField('static/doctors_image', blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     class Meta:

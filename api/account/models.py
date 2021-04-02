@@ -52,7 +52,7 @@ class NewUser(AbstractBaseUser):
     email = models.EmailField(verbose_name="email", unique=True)
     username = models.CharField(max_length=150, unique=True)
     address = models.CharField(max_length=150, blank=True)
-    profile_image = models.ImageField('profile_image', blank=True)
+    profile_image = models.ImageField('static/profile_image', blank=True)
     start_date = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
