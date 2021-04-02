@@ -15,7 +15,6 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -162,19 +161,19 @@ USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 MEDIA_URL = '/images/'
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'static/profile_images')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'static/service_image')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/doctors_image')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # SMTP Configurations
