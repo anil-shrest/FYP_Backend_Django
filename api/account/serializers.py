@@ -77,6 +77,7 @@ class AccountPropertySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NewUser
+        depth = 1
         # fields = ['pk', 'email', 'username',
         #           'first_name', 'last_name', 'mobile', 'address', 'profile_image']
         fields = ('__all__')

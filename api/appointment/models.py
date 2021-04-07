@@ -16,6 +16,7 @@ class AppointmentTable(models.Model):
     appointmentTime = models.TextField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_booked = models.BooleanField(default=False)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, related_name='appointments', related_query_name='appointment', on_delete=models.CASCADE, null=True)
     # slug = models.SlugField(blank=True, unique=True)

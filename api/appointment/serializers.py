@@ -15,7 +15,7 @@ class AppointmentSerializer(serializers.ModelSerializer):
         model = AppointmentTable
         depth = 1
         fields = [
-            'id', 'appointmentTime', 'username', 'doctor', 'created_at'
+            'id', 'appointmentTime', 'username', 'doctor', 'is_booked', 'created_at'
         ]
         # fields = ('__all__')
 

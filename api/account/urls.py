@@ -14,7 +14,7 @@ from .views import(
     PasswordTokenCheck,
     RequestPasswordResetEmail,
     SetNewPassword,
-#     UserList,
+    #     UserList,
 )
 from rest_framework.authtoken.views import obtain_auth_token
 # from rest_framework.authtoken import views
@@ -24,7 +24,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 urlpatterns = [
     path('register/', register_view, name="register"),
     path('login/', obtain_auth_token, name="login"),
-#     path('users/', views.UserList.as_view(), name="list"),
+    #     path('users/', views.UserList.as_view(), name="list"),
 
     # path('image/', ImageViewSet.as_view, name='image'),
     # path('log/', LoginView, name='log'),
@@ -40,6 +40,10 @@ urlpatterns = [
          PasswordTokenCheck.as_view(), name="password_reset_confirm"),
     path('password_reset_compelete/', SetNewPassword.as_view(),
          name="password_reset_compelete"),
+#     path('save_device_token/', views.save_device_key, name="device_key"),
+    # Diff way to change pwd via email
+    # path('api/password_reset/',
+    #      include('django_rest_passwordreset.urls', namespace='password_reset')),
     # path('reset_password/', auth_views.PasswordResetView.as_view(), name="reset_password"),
     # path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
     # path('reset_password/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name="password_reset_confirm"),

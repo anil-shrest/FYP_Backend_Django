@@ -26,9 +26,10 @@ class TimeTableView(viewsets.ModelViewSet):
 @api_view(['POST'])
 # @permission_classes([IsAuthenticated])
 def set_timings(request, id):
+    user = request.user
     releated_doctor = Doctor.objects.get(id=id)
     if request.method == 'POST':
-        serializer = TimeSe(data=request.data)
+        serializer = TimeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(doctor=releated_doctor)
             return Response(serializer.data, status=status.HTTP_200_OK)

@@ -12,4 +12,8 @@ urlpatterns = [
     path('appointment/edit/<int:pk>/',
          views.AppointmentEdit.as_view(), name='appointment-edit'),
     path('appointment/add/<int:id>/', views.book_appointments, name='add-appoint'),
+    path('sending_fcm/<int:staff_id>/',
+         views.sending_notification, name='add-fcm'),
+    path('confirmed_fcm/<int:appointment_id>/',
+         views.sending_confirmation_notification, name='confirm-fcm'),
 ]

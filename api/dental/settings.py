@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
     'dental-home-nepal.herokuapp.com',
     '10.0.2.2',  # for android emulator to run this
     '127.0.0.1',
+    '192.168.10.65',
     'localhost',
 ]
 
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    # 'django_rest_passwordreset',
+    'django_rest_passwordreset',
     'account',
     'doctors',
     'notes',
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'appointment',
     'dental_service',
     'time_table',
+    'device_token',
 ]
 
 MIDDLEWARE = [
@@ -177,5 +179,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'nil.shrestha1234@gmail.com'
-EMAIL_HOST_PASSWORD = 'Shadowscry2000'
+EMAIL_HOST_USER = 'monsterz.killer123@gmail.com'
+EMAIL_HOST_PASSWORD = 'kakashi123'

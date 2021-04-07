@@ -11,7 +11,6 @@ urlpatterns = [
     path('', include('account.urls')),
     path('', include('dental_service.urls')),
     path('', include('doctors.urls')),
+    path('', include('device_token.urls')),
     path('', include('time_table.urls')),
-    # path('', include('staff.urls')),
-    # path('', include('offer.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

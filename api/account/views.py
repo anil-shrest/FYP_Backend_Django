@@ -19,6 +19,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from .utils import Util
 from .models import NewUser
+from device_token import serializers
 
 
 # class UserList(generics.ListAPIView):
@@ -50,7 +51,7 @@ def verify_otp(request):
             print(serializer.data['otp'])
             # request.session['mobile'] = serializer.data['otp']
             verify = verification_checks(
-                request.session['mobile'], serializer.data['otp'])
+                serializer.data['mobile'], serializer.data['otp'])
             if verify.status == 'approved':
                 # print(serializer.data['mobile'])
                 print(serializer.data['otp'])
@@ -206,3 +207,5 @@ class SetNewPassword(generics.GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         return Response({'success': True, 'message': 'Password reset successful'}, status=status.HTTP_200_OK)
+
+

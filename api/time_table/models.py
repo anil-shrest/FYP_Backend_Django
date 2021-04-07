@@ -1,12 +1,15 @@
 from django.db import models
 from django.conf import settings
 from doctors.models import Doctor
+from account.models import NewUser
 from django.dispatch import receiver
 
 
 # Model creation for tiime table
 class TimeTable(models.Model):
 
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='timeTable',
+                               related_query_name='timeTable', on_delete=models.CASCADE, null=True)
     time_space = models.TextField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
