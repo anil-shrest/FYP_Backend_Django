@@ -18,7 +18,7 @@ User = NewUser
 
 # TO book a new appointment
 @api_view(['POST'])
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def book_appointments(request, id):
     related_doctor = Doctor.objects.get(id=id)
     user = request.user
@@ -32,7 +32,7 @@ def book_appointments(request, id):
 
 # To view all the available appointments
 class AppointmentView(viewsets.ModelViewSet):
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     queryset = AppointmentTable.objects.all()
@@ -154,10 +154,8 @@ def sending_confirmation_notification(request, appointment_id):
     # }
     click_action = "FLUTTER_NOTIFICATION_CLICK"
     device_key = device_token
-    test = fcm_servive.notify_single_device(registration_id=device_key,
-                                            message_body=message_body, message_title=message_title,
-
-                                            )
+    test = fcm_servive.notify_single_device(
+        registration_id=device_key, message_body=message_body, message_title=message_title)
     print(test)
     return Response(test, status=status.HTTP_200_OK)
 

@@ -174,5 +174,5 @@ class MobileSerializer(serializers.Serializer):
 # OTP serializer
 class OtpSerializer(serializers.Serializer):
     otp = serializers.CharField()
-    # mobile_no = serializers.CharField()
+    mobile_no = serializers.CharField()
     # print(otp);

@@ -45,15 +45,11 @@ def verify_number(request):
 def verify_otp(request):
     if request.method == 'POST':
         serializer = OtpSerializer(data=request.data)
-        # serializer2 = MobileSerializer(data=request.data)
         if serializer.is_valid():
-            # print(serializer.data['mobile'])
-            print(serializer.data['otp'])
-            # request.session['mobile'] = serializer.data['otp']
             verify = verification_checks(
-                serializer.data['mobile'], serializer.data['otp'])
+                serializer.data['mobile_no'], serializer.data['otp'])
             if verify.status == 'approved':
-                # print(serializer.data['mobile'])
+                print(serializer.data['mobile_no'])
                 print(serializer.data['otp'])
                 return Response({'status': verify.status})
         return Response({'otp': serializer.data['otp']})
@@ -76,8 +72,6 @@ def register_view(request):
             data['email'] = user.email
             data['username'] = user.username
             data['address'] = user.address
-            # data['password'] = user.password
-            # data['profile_image'] = user.profile_image
             token = Token.objects.get(user=user).key
             data['token'] = token
         else:
@@ -207,5 +201,3 @@ class SetNewPassword(generics.GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         return Response({'success': True, 'message': 'Password reset successful'}, status=status.HTTP_200_OK)
-
-

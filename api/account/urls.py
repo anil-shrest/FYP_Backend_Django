@@ -1,8 +1,8 @@
 from django.urls import path, include
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
-from account import views
 from rest_framework import permissions, status, generics, request, viewsets
+from account import views
 from .views import(
     register_view,
     HelloView,
@@ -14,16 +14,13 @@ from .views import(
     PasswordTokenCheck,
     RequestPasswordResetEmail,
     SetNewPassword,
-    #     UserList,
 )
 from rest_framework.authtoken.views import obtain_auth_token
-# from rest_framework.authtoken import views
-
-# app_name = "accounts"
 
 urlpatterns = [
-    path('register/', register_view, name="register"),
     path('login/', obtain_auth_token, name="login"),
+    path('register/', register_view, name="register"),
+    #     path('login/', obtain_auth_token, name="login"),
     #     path('users/', views.UserList.as_view(), name="list"),
 
     # path('image/', ImageViewSet.as_view, name='image'),
@@ -40,7 +37,7 @@ urlpatterns = [
          PasswordTokenCheck.as_view(), name="password_reset_confirm"),
     path('password_reset_compelete/', SetNewPassword.as_view(),
          name="password_reset_compelete"),
-#     path('save_device_token/', views.save_device_key, name="device_key"),
+    #     path('save_device_token/', views.save_device_key, name="device_key"),
     # Diff way to change pwd via email
     # path('api/password_reset/',
     #      include('django_rest_passwordreset.urls', namespace='password_reset')),

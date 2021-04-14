@@ -5,7 +5,7 @@ from appointment import views
 
 # URLS for appointment task
 urlpatterns = [
-    path('appointment/list/', views.AppointmentView.as_view({'get': 'list'}),
+    path('appointment/list/', views.AppointmentList.as_view(),
          name='appointment-list'),
     path('appointment/list-details/<int:id>/', views.AppointmentDetailView.as_view(),
          name='appointment-list'),

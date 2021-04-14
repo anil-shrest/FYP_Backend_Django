@@ -16,3 +16,4 @@ class DeviceTokenSerializer(serializers.ModelSerializer):
     # def get_author_username(self, appointment):
     #     username = appointment.author.id
     #     return username
+    
