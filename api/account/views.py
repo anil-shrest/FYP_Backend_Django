@@ -22,10 +22,6 @@ from .models import NewUser
 from device_token import serializers
 
 
-# class UserList(generics.ListAPIView):
-#     serializer_class = AccountPropertySerializer
-#     queryset = NewUser.objects.all()
-
 # View for OTP setup
 @api_view(['POST'])
 @permission_classes([])
@@ -56,7 +52,6 @@ def verify_otp(request):
 
 
 # View for registering a new user
-
 @api_view(['POST', ])
 @parser_classes((MultiPartParser, ))
 def register_view(request):
@@ -79,23 +74,7 @@ def register_view(request):
         return Response(data)
 
 
-# class LoginView(views.APIView):
-#     serializer_class = LoginSerializer
-
-#     def post(self, request, **kwargs):
-#         serializer = self.serializer_class(data=request.data)
-#         if serializer.is_valid():
-#             user = NewUser.objects.get(username=serializer.data['username'])
-#             token = Token.objects.create(user=user)
-
-#             response = {}
-#             response['user'] = serializer.data
-#             response['token'] = token.key
-
-#             return Response(response, status=status.HTTP_200_OK)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
+# For demo purpose
 class HelloView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -106,9 +85,8 @@ class HelloView(APIView):
 
 # View for accounts properties
 @api_view(['GET', ])
-# @permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 def account_property_view(request):
-    # user = NewUser.objects.get(username='bing')
     try:
         user = request.user
     except user.DoesNotExists:

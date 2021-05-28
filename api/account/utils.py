@@ -1,6 +1,6 @@
 from django.core.mail import EmailMessage
 
-# Email data for sending 
+# Email data for sending email for password reset via Gmail
 class Util:
     @staticmethod
     def send_email(data):

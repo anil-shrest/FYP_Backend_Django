@@ -1,8 +1,6 @@
 from django.db import models
 
 # Dental home doctor model
-
-
 class Doctor(models.Model):
     full_name = models.CharField(max_length=150, blank=False)
     nmc_number = models.CharField(max_length=8, blank=False)

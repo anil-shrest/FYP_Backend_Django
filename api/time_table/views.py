@@ -11,20 +11,16 @@ from rest_framework.views import APIView
 
 
 # Time table classes for CRUD
-
 class TimeTableView(viewsets.ModelViewSet):
-    # permission_classes = (permissions.IsAuthenticated,)
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     queryset = TimeTable.objects.all()
     serializer_class = TimeTableSerializer
 
-#     def perform_create(self, serializer):
-#         serializer.save(owner=self.request.NewUser)
-
 
 @api_view(['POST'])
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def set_timings(request, id):
     user = request.user
     releated_doctor = Doctor.objects.get(id=id)
@@ -35,15 +31,14 @@ def set_timings(request, id):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
-
+# Retrieve, update or delete a appointment instance.
 class TimeTableEdit(generics.RetrieveUpdateDestroyAPIView):
-    # Retrieve, update or delete a appointment instance.
-    # permission_classes = [permissions.IsAuthenticated]
-
+    permission_classes = [permissions.IsAuthenticated]
     queryset = TimeTable.objects.all()
     serializer_class = TimeTableSerializer
 
 
+# Update or delete time table
 class TimeTableDetailView(APIView):
 
     def patch(self, request, *args, **kwargs):

@@ -3,9 +3,6 @@ from rest_framework.validators import UniqueTogetherValidator
 from .models import NewUser
 from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
-# from versatileimagefield.serializers import VersatileImageFieldSerializer
-# from rest_flex_fields import FlexFieldsModelSerializer
-# from .image_conversion import Base64ImageField
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import smart_bytes, smart_str, force_str, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -13,15 +10,13 @@ from rest_framework.exceptions import AuthenticationFailed
 
 
 # User Serializer
-
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewUser
         fields = ('id', 'username', 'email')
 
 
-# User Serializer
+# User Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(
         style={'input_type': 'password'}, write_only=True)
@@ -78,20 +73,16 @@ class AccountPropertySerializer(serializers.ModelSerializer):
     class Meta:
         model = NewUser
         depth = 1
-        # fields = ['pk', 'email', 'username',
-        #           'first_name', 'last_name', 'mobile', 'address', 'profile_image']
         fields = ('__all__')
 
+
 # Account Property Serializer
-
-
 class AccountUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NewUser
         fields = [
             'first_name', 'last_name', 'email', 'address']
-        # fields = ('__all__')
 
 
 # Password change serializer
@@ -135,6 +126,7 @@ class ResetPasswordSerializer(serializers.Serializer):
         fields = ['email']
 
 
+# New password set serializers
 class SetNewPasswordSerializer(serializers.Serializer):
     password = serializers.CharField(
         min_length=6, max_length=30, write_only=True)
@@ -168,11 +160,9 @@ class SetNewPasswordSerializer(serializers.Serializer):
 # Mobile number serializer for OTP
 class MobileSerializer(serializers.Serializer):
     mobile = serializers.CharField()
-    # print(mobile);
 
 
 # OTP serializer
 class OtpSerializer(serializers.Serializer):
     otp = serializers.CharField()
     mobile_no = serializers.CharField()
-    # print(otp);

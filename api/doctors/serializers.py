@@ -1,12 +1,8 @@
 from rest_framework import serializers
 from .models import Doctor
-# from services.serializers import ServiceSerializer
-# from doctor.serializers import DoctorPropertySerializer
-# from services.serializers import ServiceSerializer
+
 
 # Doctor serializer creation
-
-
 class DoctorSerializer(serializers.ModelSerializer):
 
     photo = serializers.ImageField(max_length=None, use_url=True)
@@ -31,7 +27,6 @@ class DoctorSerializer(serializers.ModelSerializer):
 
 # Service property serializer
 class DoctorPropertySerializer(serializers.ModelSerializer):
-    # doctor = ServiceSerializer(many=True, read_only=True)
 
     class Meta:
         model = Doctor

@@ -7,6 +7,8 @@ from appointment import views
 urlpatterns = [
     path('appointment/list/', views.AppointmentList.as_view(),
          name='appointment-list'),
+    path('appointment/list-all/', views.AppointmentView.as_view({'get': 'list'}),
+         name='appointment-list-all'),
     path('appointment/list-details/<int:id>/', views.AppointmentDetailView.as_view(),
          name='appointment-list'),
     path('appointment/edit/<int:pk>/',

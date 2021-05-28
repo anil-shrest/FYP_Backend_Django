@@ -1,13 +1,11 @@
 from rest_framework import serializers
 from .models import Services
 from doctors.serializers import DoctorPropertySerializer
-# from doctor.serializers import DoctoreSerializer
 
 
 # Servives serializer creation
 class ServiceSerializer(serializers.ModelSerializer):
 
-    # doctor_data = DoctorPropertySerializer(many=True)
     service_image = serializers.ImageField(max_length=None, use_url=True)
 
     class Meta:
@@ -35,9 +33,8 @@ class ServicePropertySerializer(serializers.ModelSerializer):
                   'service_detail', 'service_image']
 
 
+# Doctor and service serializer 
 class DoctorServiceSerializer(serializers.ModelSerializer):
-    # doctor = serializers.CharField(source='doctor')
-    # doctor_data = DoctorPropertySerializer(many=True)
 
     class Meta:
         model = Services

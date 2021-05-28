@@ -1,12 +1,9 @@
-from device_token.models import DeviceToken
+from .models import DeviceToken
 from rest_framework import serializers
 
 
+# Device token serializer
 class DeviceTokenSerializer(serializers.ModelSerializer):
-    # doctor = serializers.CharField(source='doctor')
-    # doctor_data = DoctorPropertySerializer(many=True)
-    # authors = serializers.SerializerMethodField('get_author_username')
-    # doctor = serializers.SerializerMethodField('get_author_doctorname')
 
     class Meta:
         model = DeviceToken

@@ -4,10 +4,6 @@ from dental_service import views
 
 
 service_list = views.ServiceView.as_view({'get': 'list'})
-# service_edit = views.ServiceView.as_view({'get': 'retrieve',
-#                                           'put': 'update',
-#                                           'patch': 'partial_update',
-#                                           'delete': 'destroy'})
 
 # URLS for service task
 urlpatterns = [

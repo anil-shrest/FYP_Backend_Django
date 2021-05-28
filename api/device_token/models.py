@@ -1,13 +1,14 @@
 from django.db import models
-from account.models import NewUser
+# from amodels import NewUser
+from django.conf import settings
+
 
 
 # Device key storage model
-
 class DeviceToken(models.Model):
-    device_key = models.TextField(max_length=350)
+    device_key = models.TextField()
     author = models.ForeignKey(
-        NewUser, on_delete=models.CASCADE, null=True, related_name='staffUser')
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='staffUser')
 
     class Meta:
         ordering = ['author']
